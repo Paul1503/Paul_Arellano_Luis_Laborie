@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" as="style">
+    <link rel="preload" href="{% static 'css/estilos.css' %}" as="style">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/calculadora.js' %}"></script>
+    <script src="{% static 'js/formulario.js' %}"></script>
+    <title>Contacto</title>
+</head>
+
+<body><!--Menu de navegacion-->
+    <header>
+        <img class="logo" src="{% static 'img/logo-trans.png' %}" alt="Logo">
+        <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+        <nav class="nav" id="nav">
+            <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                <li><a href="{% url 'tienda' %}">Tienda</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                <li><a href="{% url 'buscador' %}">Buscador</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script src="js/main.js"></script>
+</body><!--Menu de navegacion-->
+
+<main class="carrusel">
+    <form id="formulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre"><br>
+        <span id="nombreError" class="error-message"></span><br>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido"><br>
+        <span id="apellidoError" class="error-message"></span><br>
+
+        <label for="fechaNacimiento">Fecha de nacimiento:</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento"><br>
+        <span id="fechaNacimientoError" class="error-message"></span><br>
+
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena"><br>
+        <span id="contrasenaError" class="error-message"></span><br>
+
+        <label for="repetirContrasena">Repetir contraseña:</label>
+        <input type="password" id="repetirContrasena" name="repetirContrasena"><br>
+        <span id="repetirContrasenaError" class="error-message"></span><br>
+
+        <input type="submit" value="Enviar">
+        <br>
+        <input type="reset" value="Limpiar campos">
+    </form>
+
+    <div class="cuerpo">
+        <div class="calculadora">
+            <div class="pantalla">0</div>
+            <button id="c" class="btn">C</button>
+            <button id="borrar" class="btn">←</button>
+            <button class="btn">/</button>
+            <button class="btn">*</button>
+            <button class="btn">7</button>
+            <button class="btn">8</button>
+            <button class="btn">9</button>
+            <button class="btn">-</button>
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+            <button class="btn">6</button>
+            <button class="btn">+</button>
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button id="igual" class="btn">=</button>
+            <button id="cero" class="btn">0</button>
+            <button class="btn">.</button>
+        </div>
+    </div>
+    
+</main>
+
+<footer><!--footer-->
+    <div class="enlaces">
+        <a href="#"><i class="bi bi-facebook"></i></A>
+        <a href="#"><i class="bi bi-twitter"></i></a>
+        <a href="#"><i class="bi bi-youtube"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+    </div>
+    <hr>
+    <div>
+        © 2023 Copyright:
+        <a class="text-white" href="#">Paul Arellano-Luis Laborie.</a>
+    </div>
+</footer><!--footer-->
+
+</html>

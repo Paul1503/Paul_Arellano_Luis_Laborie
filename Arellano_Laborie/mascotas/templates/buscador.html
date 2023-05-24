@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Api</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="preload" href="{% static 'css/estilos.css' %}" as="style">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+    <header>
+            <img class="logo" src="{% static 'img/logo-trans.png' %}" alt="Logo">
+            <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+            <nav class="nav" id="nav">
+                <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
+                <ul class="nav-list">
+                    <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                    <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                    <li><a href="{% url 'tienda' %}">Tienda</a></li>
+                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                    <li><a href="{% url 'buscador' %}">Buscador</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        
+    <section class="weather-content">
+        <h1>Buscador del clima</h1>
+        <div class="result">
+            <h5>Clima en Chile</h5>
+
+            <h2>0°C</h2>
+            <p>Max: 0°C</p>
+            <p>Min: 0°C</p>
+        </div>
+
+        <form action="" method="POST" class="get-weather">
+            <input type="text" name="city" id="city" placeholder="Escribe la ciudad">
+            <select name="" id="country">
+                
+                <option disabled selected value="">Selecciona El pais</option>
+                <option value="CL">Chile</option>
+                <option value="AR">Argentina</option>
+                <option value="CO">Colombia</option>
+                <option value="ES">España</option>
+                <option value="EU">Estados Unidos</option>
+                <option value="MX">Mexico</option>
+                <option value="PE">Peru</option>
+            </select>
+            <input type="submit" name="" id="" value="Get Weather">
+        </form>
+    </section>
+
+    
+
+    <footer><!--footer-->
+        <div class="enlaces"> 
+             <a href="#"><i class="bi bi-facebook"></i></A>
+             <a href="#"><i class="bi bi-twitter"></i></a>
+             <a href="#"><i class="bi bi-youtube"></i></a>
+             <a href="#"><i class="bi bi-instagram"></i></a>
+             <a href="#"><i class="bi bi-linkedin"></i></a>
+        </div>
+         <hr>
+         <div>
+             © 2023 Copyright:
+             <a class="text-white" href="#">Paul Arellano-Luis Laborie..</a>
+         </div>
+     </footer><!--footer-->
+     <script src="js/api.js"></script>
+     <script src="js/main.js"></script>
+    </body>
+</html>

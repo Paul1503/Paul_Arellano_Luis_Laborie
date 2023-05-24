@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" as="style">
+    <link rel="preload" href="{% static 'css/estilos.css' %}" as="style">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
+    <title>Nosotros</title>
+</head>
+
+<body><!--Menu de navegacion-->
+    <header>
+        <img class="logo" src="{% static 'img/logo-trans.png' %}" alt="Logo">
+        <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+        <nav class="nav" id="nav">
+            <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                <li><a href="{% url 'tienda' %}">Tienda</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                <li><a href="{% url 'buscador' %}">Buscador</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body><!--Menu de navegacion-->
+
+<main>
+   <h2>Conoce un poco más</h2>
+
+   <section class="servicio">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-6">
+            <img src="{% static 'img/calle.jpg' %}" class="img-fluid" alt="Imagen">
+        </div>
+        <div class="col-md-6">
+            <p>Nuestra misión es proteger y mejorar la vida de los animales en situación de vulnerabilidad y
+                promover su bienestar. Nos esforzamos por crear conciencia sobre el trato ético y respetuoso
+                hacia los animales y su importancia en nuestra sociedad. Trabajamos para brindar atención y
+                cuidado a los animales abandonados, maltratados o en riesgo, proporcionándoles un hogar
+                seguro y amoroso. También con otras organizaciones y comunidades para fomentar
+                el desarrollo de políticas públicas que promuevan el bienestar animal. Nos esforzamos por
+                crear un mundo donde los animales sean tratados con compasión y respeto.</p>
+        </div>
+        </div>
+    </div>
+  </section>
+
+    <section class="servicio">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{% static 'img/feliz.jpg' %}" class="img-fluid" alt="">
+                </div>
+                <div class="col-md-6">
+                    <h2>Nuestra Visión</h2>
+                    <p>
+                        Nuestra visión es un mundo donde todos los animales sean tratados con respeto, compasión y
+                        consideración, sin importar su especie, raza o condición. Trabajamos para crear una sociedad
+                        donde el bienestar animal sea una prioridad y donde las personas tomen conciencia de la
+                        importancia de la protección de los animales y su entorno. Nos esforzamos por ser una
+                        organización líder en la promoción de la protección animal y en la creación de políticas
+                        públicas que aseguren su bienestar. Deseamos que cada animal tenga un hogar seguro y
+                        amoroso, y que se les brinde el cuidado que merecen. Nuestra visión es un mundo donde los
+                        humanos y los animales puedan convivir en armonía y respeto mutuo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <h2> El valor de la sensibilización por los animales</h2>
+    
+    <div class="embed-responsive embed-responsive-21by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/IRvn-is9xjo" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+    </div>
+</main>
+
+<footer><!--footer-->
+   <div class="enlaces"> 
+        <a href="#"><i class="bi bi-facebook"></i></A>
+        <a href="#"><i class="bi bi-twitter"></i></a>
+        <a href="#"><i class="bi bi-youtube"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+   </div>
+    <hr>
+    <div>
+        © 2023 Copyright:
+        <a class="text-white" href="#">Paul Arellano-Luis Laborie.</a>
+    </div>
+</footer><!--footer-->
+</html>
