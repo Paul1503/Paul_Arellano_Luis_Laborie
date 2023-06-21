@@ -66,3 +66,6 @@ Enumera aquí los requisitos previos o dependencias necesarios para el proyecto.
 	Luis Laborie.
 	Paul Arellano
 
+Credenciales de admin
+	Usuario: laborie
+	Pass: admin12345
