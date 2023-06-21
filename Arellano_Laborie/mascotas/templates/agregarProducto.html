@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+{% load static %}
+<title>Agregar Producto</title>
+{% load crispy_forms_tags %}
+
+<main>
+    <div class="container container-form">
+        <div class="row justify-content-center">
+            <div class="col-sm-8 align-items-center">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-center text-primary font-weight-bold my-4 mx-4">Agregar un producto nuevo</h2>
+                        <form method="POST" id="formularioAgregar" enctype="multipart/form-data">
+
+                            {% csrf_token %}
+                            {{ form | crispy }}
+                            <div class="row mb-4 mx-4 text-primary fuente-form">
+                                <label for="{{ productoform.field.name }}">
+                                    {{ productoform.codigo.label }}
+                                </label>
+                                {{ productoform.codigo }}
+                            </div>
+                            <div class="row mb-4 mx-4 text-primary fuente-form">
+                                <label for="{{ productoform.field.name }}">
+                                    {{ productoform.nombre.label }}
+                                </label>
+                                {{ productoform.nombre }}
+                            </div>
+                            <div class="row mb-4 mx-4 text-primary fuente-form">
+                                <label for="{{ productoform.field.name }}">
+                                    {{ productoform.precio.label }}
+                                </label>
+                                {{ productoform.precio }}
+                            </div>
+                            <div class="row mb-4 mx-4 text-primary fuente-form">
+                                <label for="{{ productoform.field.name }}">
+                                    {{ productoform.stock.label }}
+                                </label>
+                                {{ productoform.stock }}
+                            </div>
+                            <div class="row mb-4 mx-4 text-primary fuente-form">
+                                <label for="{{ productoform.field.name }}">
+                                    {{ productoform.imagen.label }}
+                                </label>
+                                {{ productoform.imagen }}
+                            </div>
+                            <div class="row mb-4 mx-4 text-primary fuente-form">
+                                <label for="{{ productoform.field.name }}">
+                                    {{ productoform.categoria.label }}
+                                </label>
+                                {{ productoform.categoria }}
+                            </div>
+                            <div class="row mb-4 mx-4 text-primary fuente-form">
+                                <label for="{{ productoform.field.name }}">
+                                    {{ productoform.descripcion.label }}
+                                </label>
+                                {{ productoform.descripcion }}
+                            </div>
+                            <div class="d-flex justify-content-end gap-3 mt-5 mb-2 mx-4">
+                                <a href="{% url 'administrar' %}" class="btn btn-secondary">Cancelar</a>
+                                <input type="submit" value="Guardar" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
