@@ -1,10 +1,15 @@
-from  django.urls import path
-from .views import inicio,nosotros,tienda,contacto,buscador
+from django.urls import path
+from .views import inicio, tienda, buscador, contacto, nosotros, administrar, agregarProducto, editarProducto, eliminarProducto, registrar
 
 urlpatterns = [
-    path('', inicio, name="inicio"),
+    path('', inicio, name="inicio" ),
+    path('tienda/', tienda, name="tienda"),
+    path('buscador/', buscador, name="buscador"),
+    path('contacto/', contacto, name="contacto"),
     path('nosotros/', nosotros, name="nosotros"),
-    path('nosotros/tienda', tienda, name='tienda'),
-    path('nosotros/tienda/contacto/', contacto, name='contacto'),
-    path('nosotros/tienda/contacto/buscador/', buscador, name='buscador'),
+    path('administrar/', administrar, name="administrar"),
+    path('agregarProducto/', agregarProducto, name="agregarProducto"),
+    path('editarProducto/<id>/', editarProducto, name="editarProducto"),
+    path('eliminarProducto/<id>/', eliminarProducto, name="eliminarProducto"),
+    path('registrar/' , registrar, name="registrar"),
 ]

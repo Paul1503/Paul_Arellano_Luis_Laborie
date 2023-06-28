@@ -1,39 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" as="style">
-    <link rel="preload" href="{% static 'css/estilos.css' %}" as="style">
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+{% block contenido %}
+{% load static %}
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/calculadora.js' %}"></script>
     <script src="{% static 'js/formulario.js' %}"></script>
     <title>Contacto</title>
-</head>
-
-<body><!--Menu de navegacion-->
-    <header>
-        <img class="logo" src="{% static 'img/logo-trans.png' %}" alt="Logo">
-        <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
-        <nav class="nav" id="nav">
-            <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
-            <ul class="nav-list">
-                <li><a href="{% url 'inicio' %}">Inicio</a></li>
-                <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
-                <li><a href="{% url 'tienda' %}">Tienda</a></li>
-                <li><a href="{% url 'contacto' %}">Contacto</a></li>
-                <li><a href="{% url 'buscador' %}">Buscador</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <script src="js/main.js"></script>
-</body><!--Menu de navegacion-->
 
 <main class="carrusel">
     <form id="formulario">
@@ -88,19 +60,4 @@
     
 </main>
 
-<footer><!--footer-->
-    <div class="enlaces">
-        <a href="#"><i class="bi bi-facebook"></i></A>
-        <a href="#"><i class="bi bi-twitter"></i></a>
-        <a href="#"><i class="bi bi-youtube"></i></a>
-        <a href="#"><i class="bi bi-instagram"></i></a>
-        <a href="#"><i class="bi bi-linkedin"></i></a>
-    </div>
-    <hr>
-    <div>
-        © 2023 Copyright:
-        <a class="text-white" href="#">Paul Arellano-Luis Laborie.</a>
-    </div>
-</footer><!--footer-->
-
-</html>
+{% endblock %}

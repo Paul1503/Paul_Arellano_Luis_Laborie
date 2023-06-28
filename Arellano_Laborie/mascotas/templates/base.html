@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+
+<body class="bg-light">
+    <header class="header">
+        <div>
+            <a href="{% url 'inicio' %}"><img class="logo" src="{% static 'img/logoweb2.2.png' %}" alt="Logo"></a>
+        </div>
+        <nav class="nav" id="nav">
+            <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                {% if user.is_authenticated%}
+                    <li><a class="nav-link" href="#">Bienvenido {{user.username}}</a></li>
+                    {% if user.is_superuser%}
+                    <li><a href="{% url 'administrar' %}">Administrar</a></li>
+                    {% endif %}
+                {% endif %}
+                <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                <li><a href="{% url 'tienda' %}">Tienda</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                <li><a href="{% url 'buscador' %}">Buscador</a></li>
+                <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                <li class="icono-list">
+                    <a href="#"><i class="bi bi-bag-heart icono-nav"></i></a>
+                    {% if user.is_authenticated%}
+                        <a href="{% url 'logout' %}">X</a>
+                    {% else %}    
+                        <a href="{% url 'login' %}"><i class="bi bi-person-circle icono-nav"></i></a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+        <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+    </header>
+
+    {% block contenido %}
+
+
+    {% endblock%}
+
+    <footer>
+        <div class="enlaces">
+            <a href="#"><i class="bi bi-facebook"></i></A>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+        </div>
+        <hr>
+        <div>
+            <span>© 2023 Copyright | Paul Arellano & Luis Laborie.</span>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
