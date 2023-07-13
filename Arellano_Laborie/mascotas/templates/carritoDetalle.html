@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+{% load static %}
+<title>Detalle de la compra</title>
+
+<div class="container">
+    <div class="col-12 table-responsive">
+        <table class="table table-light table-borderless">
+            <thead>
+                <tr>
+                    <th colspan="5" class="text-center fw-bold h2 table-active">Detalle de la compra</th>
+                </tr>
+                <tr>
+                    <th colspan="5" class="text-center fw-bold h6">Fecha: {{ fecha }}</th>
+                </tr>
+                <tr style="height: 30px;"></tr>
+                <tr class="text-center align-middle">
+                    <th>Código Boleta</th>
+                    <th>Código Producto</th>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prod in productos%}
+                <tr class="text-center align-middle"> 
+                    <td>{{ prod.id_boleta }}</td>
+                    <td>{{ prod.id_producto.codigo }}</td>
+                    <td>{{ prod.id_producto.nombre }}</td>
+                    <td>{{ prod.cantidad }}</td>
+                    <td>{{ prod.subtotal }}</td>
+                </tr>
+                {% endfor %}
+                <tr style="height: 50px;"></tr>
+                <tr class="text-center align-middle">
+                    <td colspan="5" class="fw-bold h4 table-active">Impuestos y Costo de envío</td>
+                </tr>
+                <tr class="text-center align-middle">
+                    <td colspan="1"></td>
+                    <td colspan="1" class="fw-bold">Impuesto (IVA 19%)</td>
+                    <td colspan="1">{{ impuesto }}</td>
+                    <td colspan="1"></td>
+                    <td colspan="1"></td>
+                </tr>
+                <tr class="text-center align-middle">
+                    <td colspan="1"></td>
+                    <td colspan="1" class="fw-bold">Costo de Envío:</td>
+                    <td colspan="1">{{ envio }}</td>
+                    <td colspan="1"></td>
+                    <td colspan="1"></td>
+                </tr>
+                <tr class="text-center align-middle">
+                    <tr style="height: 50px;"></tr>
+                    <td colspan="5" class="fw-bold h4 text-center table-active">Total de la compra</td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="h5 text-center table-active">(Incluye impuestos y envío)</td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="fw-bold text-center h3">$ {{ total }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

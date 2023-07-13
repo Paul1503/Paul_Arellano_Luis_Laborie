@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+{% load static %}
+<title>Carrito de compras</title>
+<div class="container">
+    <div class="col-12 table-responsive">
+        <table class="table table-secondary">
+            <thead>
+                <tr>
+                    <th colspan="6" class="text-center fw-bold h4 table-active">CARRO DE COMPRAS</th>
+                </tr>
+                <tr class="text-center align-middle">
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if request.session.carrito.items %}
+                {% for key, value in request.session.carrito.items %}
+                <tr class="text-center align-middle">
+                    <td style="font-size:15px">{{ value.nombre }}</td>
+                    <td style="font-size:15px">{{ value.precio }}</td>
+                    <td style="font-size:15px">{{ value.cantidad}}</td>
+                    <td><a href="{% url 'agregar' value.producto_id %}" class="badge btn btn-primary">+</a></td>
+                    <td><a href="{% url 'restar'  value.producto_id %}" class="badge btn btn-warning">-</a></td>
+                </tr>
+                {% endfor %}
+                <tr style="height: 30px;"></tr>
+                <tr class="text-center align-middle">
+                    <td colspan="6" class="fw-bold h4 table-active">TOTAL</td>
+                </tr>
+                <tr class="text-center align-middle">
+                    <td colspan="6" class="fw-bold h4">$ {{ total_carrito }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6">
+                        <div class="alert alert-warning text-center" style="font-weight: bold;">No hay productos en tu carro de compras</div>
+                    </td>
+                </tr>
+                {% endif %}
+
+                {% if mensaje_error %}
+                <tr>
+                    <td colspan="6">
+                        <div class="alert alert-danger text-center" style="font-weight: bold;">{{ mensaje_error }}</div>
+                    </td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center flex-row">
+        <div class="col-lg-2 col-md-4 col-6">
+            <a href="{% url 'limpiar' %}" class="btn btn-outline-warning btn-block">Limpiar</a> 
+        </div>
+        <div class="col-lg-2 col-md-4 col-6">
+            <a href="{% url 'generarBoleta' %}" class="btn btn-outline-primary btn-block">Comprar</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
+<script src="{% static 'js/main.js' %}"></script>
